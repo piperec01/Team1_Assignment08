@@ -11,10 +11,12 @@
 # Citations:
 # Anything else that's relevant:
 
-def SQLStatement ():
-    '''
-    This is the SQL statement that will pull the data from the database
-    Param: none
-    '''
+
     cursor = conn.cursor()
     cursor.execute('SELECT LS.LoyaltyStatus, L.StoreID, COUNT(T.LoyaltyID) FROM [GroceryStoreSimulator].[dbo].[tLoyaltyStatus] AS LS, GroceryStoreSimulator.dbo.tLoyalty AS L, GroceryStoreSimulator.dbo.tTransaction AS TWHERE T.LoyaltyID = L.LoyaltyID AND L.LoyaltyStatusID = LS.LoyaltyStatusIDGROUP BY LS.LoyaltyStatus, L.StoreID')
+    sql_list = list()
+    for cursor in sql_list:
+        sql_list(cursor.sql())
+        
+        
+    

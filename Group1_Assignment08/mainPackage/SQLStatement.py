@@ -11,12 +11,14 @@
 # Citations:
 # Anything else that's relevant:
 
-
-    cursor = conn.cursor()
-    cursor.execute('SELECT LS.LoyaltyStatus, L.StoreID, COUNT(T.LoyaltyID) FROM [GroceryStoreSimulator].[dbo].[tLoyaltyStatus] AS LS, GroceryStoreSimulator.dbo.tLoyalty AS L, GroceryStoreSimulator.dbo.tTransaction AS TWHERE T.LoyaltyID = L.LoyaltyID AND L.LoyaltyStatusID = LS.LoyaltyStatusIDGROUP BY LS.LoyaltyStatus, L.StoreID')
-    sql_list = list()
-    for cursor in sql_list:
-        sql_list(cursor.sql())
-        
+def SQLString():
+    '''
+    Returns the sql statment used for the query pull.
+    @param: None
+    @return string
+    '''
+    string = 'SELECT LS.LoyaltyStatus, L.StoreID, COUNT(T.LoyaltyID) AS countLoyalty FROM GroceryStoreSimulator.dbo.tLoyaltyStatus AS LS, GroceryStoreSimulator.dbo.tLoyalty AS L, GroceryStoreSimulator.dbo.tTransaction AS T WHERE T.LoyaltyID = L.LoyaltyID AND L.LoyaltyStatusID = LS.LoyaltyStatusID GROUP BY LS.LoyaltyStatus, L.StoreID'
+    return string
+    
         
     

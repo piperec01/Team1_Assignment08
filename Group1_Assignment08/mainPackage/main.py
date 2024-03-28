@@ -11,3 +11,20 @@
 # Citations:
 # Anything else that's relevant:
 
+from mainPackage.serverConnection import *
+from mainPackage.outputFunction import *
+from mainPackage.SQLStatement import *
+import pyodbc
+
+if __name__ == "__main__":
+
+    cursor = ImportDatabase().cursor()
+    cursor.execute(SQLString())
+    sql_list = list()
+    for row in cursor.fetchall():
+        sql_list.append(row.LoyaltyStatus)
+        sql_list.append(row.StoreID)
+        sql_list.append(row.countLoyalty)
+    PrintList(sql_list)
+
+     

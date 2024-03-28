@@ -17,3 +17,4 @@ def PrintList(sql_list):
     @return: None
     ''' 
     print(sql_list)
+    print("The data shows that only active loyalty status members have had transactions at each store and Store 1 has had the most transactions")
